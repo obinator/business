@@ -1,0 +1,1 @@
+require 'shipping/handlers/shipping'
