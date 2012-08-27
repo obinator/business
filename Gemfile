@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'support/gemfile')
+ require File.join(File.dirname(__FILE__), 'support/gemfile')
 
 source :rubygems
 
