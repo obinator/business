@@ -9,13 +9,13 @@ module Sketch
   extend self
 
   def dispatch_messages
-    handler = Handlers::Shipping.new
+    handlers = [Handlers::Sales.new, Handlers::Shipping.new]
 
-    dispatcher = MessageDispatcher.new handler
+    dispatcher = MessageDispatcher.new handlers
 
-    order_accepted, customer_billed = Examples.messages
+    order_received, order_accepted, customer_billed = Examples.messages
 
-    dispatcher.dispatch [order_accepted, customer_billed] do |receipt|
+    dispatcher.dispatch [order_received, order_accepted, customer_billed] do |receipt|
       puts receipt
     end
   end
