@@ -1,1 +1,0 @@
-require 'shipping/data/shipping'

@@ -1,7 +1,7 @@
-module Workbench
+module Business
   module Messages
     class CustomerBilled
-      include ::Workbench::Message
+      include Workbench::Message
       
       attr_accessor :customer_id
       attr_accessor :customer_billed

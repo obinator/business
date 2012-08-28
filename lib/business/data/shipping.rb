@@ -1,4 +1,4 @@
-module Workbench
+module Business
   module Data
     class Shipping
       attr_accessor :order_id

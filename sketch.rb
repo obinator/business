@@ -4,6 +4,7 @@ require_relative 'init'
 require_relative 'support/examples'
 
 module Sketch
+  include Business
   include Workbench
   extend self
 

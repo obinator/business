@@ -1,9 +1,9 @@
 require 'active_support/core_ext/array'
 
-module Workbench
+module Business
   module Messages
     class OrderAccepted
-      include Message
+      include Workbench::Message
 
       attr_accessor :customer_id
       attr_accessor :order_id

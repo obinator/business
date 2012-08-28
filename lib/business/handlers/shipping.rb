@@ -1,4 +1,4 @@
-module Workbench
+module Business
   module Handlers
     class Shipping
       def initialize

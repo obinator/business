@@ -7,4 +7,4 @@ require 'bundler'
 Bundler.setup
 
 require 'workbench'
-require 'shipping'
+require 'business'
