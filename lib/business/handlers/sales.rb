@@ -12,6 +12,9 @@ module Business
         @data.customer_id = message.customer_id
         @data.order_id = message.order_id
       end
+
+      def handle_something(message)
+      end
     end
   end
 end

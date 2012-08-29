@@ -17,4 +17,7 @@ FactoryGirl.define do
     customer_id 111
     order_id 222
   end
+
+  factory :something_message, class: Business::Messages::Something do
+  end
 end
