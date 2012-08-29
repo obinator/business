@@ -1,7 +1,11 @@
 module Business
   module Messages
-    class SomethingMessage
+    class Something
       include Workbench::Message
+
+      def receipt
+        "Something Receipt"
+      end
     end
   end
 end      
