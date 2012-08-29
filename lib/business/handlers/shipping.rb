@@ -1,16 +1,10 @@
 module Business
   module Handlers
     class Shipping
+      include Workbench::Handler
+
       def initialize
         @data = Data::Shipping.new
-      end
-
-      def name(message)
-        "handle_#{message.name}"
-      end
-
-      def handle(message)
-         send name(message), message
       end
 
       def handle_order_accepted(message)
