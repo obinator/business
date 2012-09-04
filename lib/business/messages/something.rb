@@ -3,7 +3,7 @@ module Business
     class Something
       include Workbench::Message
 
-      def receipt
+      def description
         "Something Happened"
       end
     end

@@ -5,13 +5,12 @@ require_relative 'support/examples'
 
 module Sketch
   include Business
-  include Workbench
   extend self
 
   def dispatch_messages
     handlers = [Handlers::Sales.new, Handlers::Shipping.new, Handlers::Something.new]
 
-    dispatcher = MessageDispatcher.new handlers
+    dispatcher = Workbench::MessageDispatcher.new handlers
 
     dispatcher.dispatch Examples.messages do |receipt|
       puts receipt

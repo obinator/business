@@ -7,7 +7,7 @@ module Business
       attr_accessor :customer_billed
       attr_accessor :order_id
 
-      def receipt
+      def description
         "Customer #{customer_id} billed for order #{order_id}"
       end
     end
