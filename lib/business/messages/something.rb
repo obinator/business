@@ -4,7 +4,7 @@ module Business
       include Workbench::Message
 
       def receipt
-        "Something Receipt"
+        "Something Happened"
       end
     end
   end
