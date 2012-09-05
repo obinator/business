@@ -3,20 +3,25 @@ module Business
     class Shipping
       include Workbench::Handler
 
-      def initialize
-        @data = Data::Shipping.new
+      data Data::Shipping
+      started_by :order_accepted, :customer_billed
+
+      handle :order_accepted do |message|
+        data.copy message do
+          record :product_ids_in_order
+          record :customer_id
+          record :order_id
+        end
+        complete if ready?
       end
 
-      def handle_order_accepted(message)
-        @data.product_ids_in_order = message.product_ids_in_order
-        @data.customer_id = message.customer_id
-        @data.order_id = message.order_id
-      end
-
-      def handle_customer_billed(message)
-        @data.customer_billed = true
-        @data.customer_id = message.customer_id
-        @data.order_id = message.order_id
+      handle :customer_billed do |message|
+        data.copy message do
+          record :customer_billed
+          record :customer_id
+          record :order_id
+        end
+        complete if ready?
       end
     end
   end

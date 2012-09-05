@@ -3,14 +3,16 @@ module Business
     class Sales
       include Workbench::Handler
 
-      def initialize
-        @data = Data::Sales.new
-      end
+      data Data::Sales
+      started_by :order_received
 
-      def handle_order_received(message)
-        @data.product_ids_in_order = message.product_ids_in_order
-        @data.customer_id = message.customer_id
-        @data.order_id = message.order_id
+      handle :order_received do |message|
+        data.copy message do
+          record :product_ids_in_order
+          record :customer_id
+          record :order_id
+        end
+        complete if ready?
       end
       
     end
